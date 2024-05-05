@@ -18,9 +18,9 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get install --no-insta
 WORKDIR /
 COPY --from=builder /jcc/ /jcc/
 COPY --from=builder /usr/local/bin/rdrprep /usr/local/bin/rdrprep
-ADD tk4-.tgz /
-ADD mvs-tk5.tgz /
-ADD MVSCE.release.v2.0.3.tar /
+ADD tk4- /tk4-
+ADD mvs-tk5 /mvs-tk5
+ADD MVSCE /MVSCE
 ADD loaded.sh /home/hercules/
 ADD run.sh /
 RUN chown 1000:1000 /MVSCE && pip install automvs sphinx sphinx_rtd_theme rst2pdf sphinx_markdown_builder
