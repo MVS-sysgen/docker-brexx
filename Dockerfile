@@ -13,7 +13,7 @@ FROM mainframed767/hercules:latest
 LABEL version="0.1"
 LABEL description="Docker container to build BREXX for various MVS"
 USER root
-RUN dpkg --add-architecture i386 && apt-get update && apt-get install --no-install-recommends --assume-yes wine wine32 make python3-pip zip
+RUN dpkg --add-architecture i386 && apt-get update && apt-get install --no-install-recommends --assume-yes wine wine32 make python3-pip zip unzip
 WORKDIR /
 COPY --from=builder /jcc/ /jcc/
 COPY --from=builder /usr/local/bin/rdrprep /usr/local/bin/rdrprep
